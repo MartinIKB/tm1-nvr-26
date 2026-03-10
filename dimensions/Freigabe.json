@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Freigabe",
+	"Hierarchies@Code.links":
+	[
+		"Freigabe.hierarchies/Freigabe.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Freigabe')/Hierarchies('Freigabe')"
+	}
+}

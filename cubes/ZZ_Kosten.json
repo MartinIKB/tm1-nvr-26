@@ -1,0 +1,24 @@
+{
+	"@type":"Cube",
+	"Name":"ZZ_Kosten",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Kennzahlen')"
+		},
+		{
+			"@id":"Dimensions('Zeit')"
+		},
+		{
+			"@id":"Dimensions('Produkte')"
+		},
+		{
+			"@id":"Dimensions('Vertrieb')"
+		}
+	],
+	"Rules@Code.link":"ZZ_Kosten.rules",
+	"Views@Code.links":
+	[
+		"ZZ_Kosten.views/View_ZZ_Kosten_Befüllung.json"
+	]
+}

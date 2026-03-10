@@ -1,0 +1,37 @@
+{
+	"@type":"Cube",
+	"Name":"NVR",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Kennzahlen')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Freigabe')"
+		},
+		{
+			"@id":"Dimensions('Zeit')"
+		},
+		{
+			"@id":"Dimensions('Produkte')"
+		},
+		{
+			"@id":"Dimensions('Vertrieb')"
+		}
+	],
+	"Rules@Code.link":"NVR.rules",
+	"MeasuresDimension":
+	{
+		"@id":"Dimensions('Version')"
+	},
+	"Views@Code.links":
+	[
+		"NVR.views/Prüfung Load NVR.json",
+		"NVR.views/View_NVR_Entwicklung.json",
+		"NVR.views/View_NVR_Test.json",
+		"NVR.views/View_Test_Kosten.json"
+	]
+}

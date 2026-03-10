@@ -1,0 +1,29 @@
+{
+	"@type":"MDXView",
+	"Name":"View_NVR_Test",
+	"MDX@Code.link":"View_NVR_Test.mdx",
+	"Meta" : 
+	{
+		"Aliases" : {},
+		"ContextSets" : 
+		{
+			"[Freigabe].[Freigabe]" : 
+			{
+				"Expression" : "{[Freigabe].[Freigabe].[Test]}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Freigabe].[Freigabe]" : false,
+			"[Kennzahlen].[Kennzahlen]" : false,
+			"[Produkte].[Produkte]" : false,
+			"[Version].[Version]" : false,
+			"[Vertrieb].[Vertrieb]" : false,
+			"[Zeit].[Zeit]" : false
+		}
+	}
+}

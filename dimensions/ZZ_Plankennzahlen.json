@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"ZZ_Plankennzahlen",
+	"Hierarchies@Code.links":
+	[
+		"ZZ_Plankennzahlen.hierarchies/ZZ_Plankennzahlen.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('ZZ_Plankennzahlen')/Hierarchies('ZZ_Plankennzahlen')"
+	}
+}

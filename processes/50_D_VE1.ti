@@ -1,0 +1,86 @@
+#region Prolog
+
+##### Misc
+s_View_target = 'Load_Kennzahlen';
+s_Subset_target = s_View_target |'_Subset' ;
+
+# Create target
+ViewCreate ( 'NVR' , s_View_target , 1);
+
+###### Subsets
+SubsetCreatebyMDX( s_Subset_target, '{FILTER( {TM1SUBSETALL( [Zeit] )}, Instr([Zeit].[Flag_Aktueller_Monat], "Kalkulation") > 0 )}', 1 );
+SubsetCreatebyMDX( 'sEntwicklung', '{[Freigabe].[Freigabe].[Entwicklung]}', 1 );
+
+ViewSubsetAssign ( 'NVR' , s_View_target , 'Freigabe' , 'sEntwicklung' );
+ViewSubsetAssign ( 'NVR' , s_View_target , 'Zeit' , s_Subset_target );
+
+ViewZeroOut ( 'NVR' , s_View_target );
+#endregion
+#region Data
+
+
+CellPutN( vBarwert_Zinsmarge_nach_Risikokosten_Eigenmittel_Rest, 'NVR', 'Barwert_Zinsmarge_nach_Risikokosten_Eigenmittel_Rest', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vBarwert_Zinsmarge_nach_Risikokosten_Foerdermittel, 'NVR', 'Barwert_Zinsmarge_nach_Risikokosten_Foerdermittel', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vBarwert_Zinsmarge_nach_Risikokosten_Strukturierung_Corporates, 'NVR', 'Barwert_Zinsmarge_nach_Risikokosten_Strukturierung_Corporates', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vBarwert_Zinsmarge_nach_Risikokosten_Leveraged_Finance, 'NVR', 'Barwert_Zinsmarge_nach_Risikokosten_Leveraged_Finance', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vSonstige_Neugeschaeftsprovisionen_Kreditgeschäft_Eigenmittel_Rest, 'NVR', 'Sonstige_Neugeschaeftsprovisionen_Kreditgeschäft_Eigenmittel_Rest', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vBereitstellungsprovisionen_Kreditgeschaeft_Eigenmittel_Rest, 'NVR', 'Bereitstellungsprovisionen_Kreditgeschaeft_Eigenmittel_Rest', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vSonstige_Neugeschaeftsprovisionen_Kreditgeschäft_Foerdermittel, 'NVR', 'Sonstige_Neugeschaeftsprovisionen_Kreditgeschäft_Foerdermittel', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vBereitstellungsprovisionen_Kreditgeschaeft_Foerdermittel, 'NVR', 'Bereitstellungsprovisionen_Kreditgeschaeft_Foerdermittel', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vSonst_Neugeschaeftsprovisionen_Kreditgeschäft_Strukturierung_Corporates, 'NVR', 'Sonst_Neugeschaeftsprovisionen_Kreditgeschäft_Strukturierung_Corporates', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vBR_Provisionen_Kreditgeschaeft_Strukturierung_Corporates, 'NVR', 'BR_Provisionen_Kreditgeschaeft_Strukturierung_Corporates', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vSonst_Neugeschaeftsprovisionen_Kreditgeschäft_Leveraged_Finance, 'NVR', 'Sonst_Neugeschaeftsprovisionen_Kreditgeschäft_Leveraged_Finance', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vBR_Provisionen_Kreditgeschaeft_Leveraged_Finance, 'NVR', 'BR_Provisionen_Kreditgeschaeft_Leveraged_Finance', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vProvisionen_Kreditgeschaeft_Strukturierungsberatung_NL, 'NVR', 'Provisionen_Kreditgeschaeft_Strukturierungsberatung_NL', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vProvisionen_Beratungsprodukte_M_A, 'NVR', 'Provisionen_Beratungsprodukte_M_A', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vProvisionen_Beratungsprodukte_SEO, 'NVR', 'Provisionen_Beratungsprodukte_SEO', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vProvisionen_Beratungsprodukte_Asset_Management, 'NVR', 'Provisionen_Beratungsprodukte_Asset_Management', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vProvisionen_Beratungsprodukte_Fund_Management, 'NVR', 'Provisionen_Beratungsprodukte_Fund_Management', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vProvisionen_Financial_Markets_ECM_DCM, 'NVR', 'Provisionen_Financial_Markets_ECM_DCM', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vProvisionen_Financial_Markets_Handel, 'NVR', 'Provisionen_Financial_Markets_Handel', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vProvisionen_Financial_Markets_Inst_Sales, 'NVR', 'Provisionen_Financial_Markets_Inst_Sales', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vProvisionen_Financial_Markets_Syndizierung, 'NVR', 'Provisionen_Financial_Markets_Syndizierung', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vBarwert_Derivate_nach_Risikokosten, 'NVR', 'Barwert_Derivate_nach_Risikokosten', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vKredit_Volumen_Auszahlungen_Strukturierung_Corporates, 'NVR', 'Kredit_Volumen_Auszahlungen_Strukturierung_Corporates', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vKredit_Volumen_Auszahlungen_Foerdermittel, 'NVR', 'Kredit_Volumen_Auszahlungen_Foerdermittel', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vKredit_Volumen_Auszahlungen_Leveraged_Finance, 'NVR', 'Kredit_Volumen_Auszahlungen_Leveraged_Finance', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vKredit_Volumen_Auszahlungen_Strukturierungsberatung_NL, 'NVR', 'Kredit_Volumen_Auszahlungen_Strukturierungsberatung_NL', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vKredit_Volumen_Auszahlungen_Corporates_Eigenmittel, 'NVR', 'Kredit_Volumen_Auszahlungen_Corporates_Eigenmittel', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vEffektives_Kapital, 'NVR', 'Effektives_Kapital', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vBarwert_eff_Kap, 'NVR', 'Barwert_eff_Kap', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vNominalkapital, 'NVR', 'Nominalkapital', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vKredit_Volumen_Auszahlungen_Strukturierung_Corporates_anteilig, 'NVR', 'Kredit_Volumen_Auszahlungen_Strukturierung_Corporates_anteilig', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vKredit_Volumen_Auszahlungen_Foerdermittel_anteilig, 'NVR', 'Kredit_Volumen_Auszahlungen_Foerdermittel_anteilig', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vKredit_Volumen_Auszahlungen_Leveraged_Finance_anteilig, 'NVR', 'Kredit_Volumen_Auszahlungen_Leveraged_Finance_anteilig', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vKredit_Volumen_Auszahlungen_Strukturierungsberatung_NL_anteilig, 'NVR', 'Kredit_Volumen_Auszahlungen_Strukturierungsberatung_NL_anteilig', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vKredit_Volumen_Auszahlungen_Corporates_Eigenmittel_anteilig, 'NVR', 'Kredit_Volumen_Auszahlungen_Corporates_Eigenmittel_anteilig', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vBarwert_Zinsmarge_nach_Risikokosten_Asset_Based_Lending, 'NVR', 'Barwert_Zinsmarge_nach_Risikokosten_Asset_Based_Lending', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vBarwert_Zinsmarge_nach_Risikokosten_Immobilienfinanzierung, 'NVR', 'Barwert_Zinsmarge_nach_Risikokosten_Immobilienfinanzierung', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vSonstige_Neugeschaeftsprovisionen_Kreditgeschäft_Asset_Based_Lending, 'NVR', 'Sonstige_Neugeschaeftsprovisionen_Kreditgeschäft_Asset_Based_Lending', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vBereitstellungsprovisionen_Kreditgeschaeft_Asset_Based_Lending, 'NVR', 'Bereitstellungsprovisionen_Kreditgeschaeft_Asset_Based_Lending', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vBereitstellungsprovisionen_Kreditgeschaeft_Immobilienfinanzierung, 'NVR', 'Bereitstellungsprovisionen_Kreditgeschaeft_Immobilienfinanzierung', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vSonstige_Neugeschaeftsprovisionen_Kreditgeschäft_Immobilienfinanzierung, 'NVR', 'Sonstige_Neugeschaeftsprovisionen_Kreditgeschäft_Immobilienfinanzierung', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vBarwert_Zinsmarge_nach_Risikokosten_Trade_Finance, 'NVR', 'Barwert_Zinsmarge_nach_Risikokosten_Trade_Finance', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vSonstige_Neugeschaeftsprovisionen_Kreditgeschäft_Trade_Finance, 'NVR', 'Sonstige_Neugeschaeftsprovisionen_Kreditgeschäft_Trade_Finance', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vBereitstellungsprovisionen_Kreditgeschaeft_Trade_Finance, 'NVR', 'Bereitstellungsprovisionen_Kreditgeschaeft_Trade_Finance', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vBarwert_Zinsmarge_nach_Risikokosten_Valin, 'NVR', 'Barwert_Zinsmarge_nach_Risikokosten_Valin', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vKredit_Volumen_Auszahlungen_Trade_Finance, 'NVR', 'Kredit_Volumen_Auszahlungen_Trade_Finance', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vKredit_Volumen_Auszahlungen_Asset_Management, 'NVR', 'Kredit_Volumen_Auszahlungen_Asset_Management', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vKredit_Volumen_Auszahlungen_Immobilienfinanzierung, 'NVR', 'Kredit_Volumen_Auszahlungen_Immobilienfinanzierung', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vKredit_Volumen_Auszahlungen_Asset_Based_Lending, 'NVR', 'Kredit_Volumen_Auszahlungen_Asset_Based_Lending', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vKredit_Volumen_Auszahlungen_Trade_Finance_anteilig, 'NVR', 'Kredit_Volumen_Auszahlungen_Trade_Finance_anteilig', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vKredit_Volumen_Auszahlungen_Asset_Management_anteilig, 'NVR', 'Kredit_Volumen_Auszahlungen_Asset_Management_anteilig', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vKredit_Volumen_Auszahlungen_Immobilienfinanzierung_anteilig, 'NVR', 'Kredit_Volumen_Auszahlungen_Immobilienfinanzierung_anteilig', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vKredit_Volumen_Auszahlungen_Asset_Based_Lending_anteilig, 'NVR', 'Kredit_Volumen_Auszahlungen_Asset_Based_Lending_anteilig', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vKredit_Volumen_Auszahlungen_Trade_Finance_anteilig, 'NVR', 'Kredit_Volumen_Auszahlungen_Trade_Finance_anteilig', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vKredit_Volumen_Auszahlungen_Asset_Management_anteilig, 'NVR', 'Kredit_Volumen_Auszahlungen_Asset_Management_anteilig', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vKredit_Volumen_Auszahlungen_Immobilienfinanzierung_anteilig, 'NVR', 'Kredit_Volumen_Auszahlungen_Immobilienfinanzierung_anteilig', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vProvisionsüberschuss_Neugeschäft_Sonstige, 'NVR', 'Provisionsüberschuss_Neugeschäft_Sonstige', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vBarwert_Zinsmarge_nach_Risikokosten_T3, 'NVR', 'Barwert_Zinsmarge_nach_Risikokosten_T3', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vKredit_Volumen_Auszahlungen_T3, 'NVR', 'Kredit_Volumen_Auszahlungen_T3', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vKredit_Volumen_Auszahlungen_T3_anteilig, 'NVR', 'Kredit_Volumen_Auszahlungen_T3_anteilig', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vProvisionsüberschuss_Neugeschäft_Sonstige, 'NVR', 'Provisionsüberschuss_Neugeschäft_Sonstige', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vProvisionsüberschuss_Neugeschäft_Sonstige, 'NVR', 'Provisionsüberschuss_Neugeschäft_Sonstige', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+
+
+#endregion

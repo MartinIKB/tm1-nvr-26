@@ -1,0 +1,20 @@
+{
+	"@type":"Chore",
+	"Name":"Benutzer_und_Gruppenaktualisierung",
+	"StartTime":"2024-06-12T06:00Z",
+	"DSTSensitive":false,
+	"Active":true,
+	"ExecutionMode":"SingleCommit",
+	"Frequency":"P1DT00H00M00S",
+	"Tasks":
+	[
+		{
+			"Step":0,
+			"Parameters":[],
+			"Process":
+			{
+				"@id":"Processes('H_Benutzer_und_Gruppen_Aktualisierung')"
+			}
+		}
+	]
+}

@@ -1,0 +1,10 @@
+#region Data
+
+if (vVertrieb@<>'A_Vertrieb_Kostendummy'
+  & vVertrieb@<>'Vertrieb'
+  & vProdukte@<>'Produkte_Kostendummy'
+  & vProdukte@<>'Produkte');
+    CellPutN( vValue, 'NVR', vKennzahlen, 'Ist_EUR', 'Entwicklung', vZeit, vProdukte, vVertrieb );
+endif;
+
+#endregion

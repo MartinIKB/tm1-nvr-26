@@ -1,0 +1,30 @@
+#region Prolog
+##### Misc
+s_View_target = 'Load_Kennzahlen';
+s_Subset_target = s_View_target |'_Subset' ;
+
+
+# Create target
+
+ViewCreate ( 'NVR' , s_View_target , 1);
+
+###### Subsets
+
+
+SubsetCreatebyMDX( s_Subset_target, '{FILTER( {TM1SUBSETALL( [Zeit] )}, Instr([Zeit].[Flag_Aktueller_Monat], "Kalkulation") > 0 )}', 1 );
+SubsetCreatebyMDX( 'sEntwicklung', '{[Freigabe].[Freigabe].[Freigabe]}', 1 );
+
+ViewSubsetAssign ( 'NVR' , s_View_target , 'Zeit' , s_Subset_target );
+ViewSubsetAssign ( 'NVR' , s_View_target , 'Freigabe' , 'sEntwicklung' );
+
+ViewZeroOut ( 'NVR' , s_View_target );
+#endregion
+#region Data
+if (CellIsUpdateable ('NVR', vKennzahlen, 'Ist_EUR', 'Freigabe', vZeit,  vProdukte, vVertrieb)=1);
+    IF( VALUE_IS_STRING = 1 );
+        CellPutS(SValue,'NVR', vKennzahlen, 'Ist_EUR','Freigabe', vZeit, vProdukte, vVertrieb);
+    ELSE; 
+        CellPutN(NValue,'NVR', vKennzahlen, 'Ist_EUR', 'Freigabe', vZeit, vProdukte, vVertrieb);  
+    ENDIF;
+endif;
+#endregion

@@ -1,0 +1,31 @@
+{
+	"@type":"MDXView",
+	"Name":"Eingabe_Plandaten_NVR",
+	"MDX@Code.link":"Eingabe_Plandaten_NVR.mdx",
+	"IsAutocalculate" : true,
+	"IsDeferComputeOnLeafDataEntry" : false,
+	"IsSuppressComputeOnOpen" : false,
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Zeit].[Zeit]" : "Caption"
+		},
+		"ContextSets" : 
+		{
+			"[Zeit].[Zeit]" : 
+			{
+				"Expression" : "{[Zeit].[Zeit].[Jan_26]}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Vertrieb].[Vertrieb]" : false,
+			"[ZZ_Plankennzahlen].[ZZ_Plankennzahlen]" : false,
+			"[Zeit].[Zeit]" : false
+		}
+	},
+	"ViewExtractSkipConsolidatedValues" : true,
+	"ViewExtractSkipRuleValues" : false,
+	"ViewExtractSkipZeroes" : true
+}

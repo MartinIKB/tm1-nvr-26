@@ -1,0 +1,40 @@
+{
+	"@type":"MDXView",
+	"Name":"View_Test_Kosten",
+	"MDX@Code.link":"View_Test_Kosten.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Kennzahlen].[Kennzahlen]" : "Caption"
+		},
+		"ContextSets" : 
+		{
+			"[Freigabe].[Freigabe]" : 
+			{
+				"Expression" : "{[Freigabe].[Freigabe].MEMBERS}"
+			},
+			"[Kennzahlen].[Kennzahlen]" : 
+			{
+				"Expression" : "{[Kennzahlen].[Kennzahlen].[Direkte_Kosten_Vertrieb],[Kennzahlen].[Kennzahlen].[Direkte_Kosten_Produkteinheiten],[Kennzahlen].[Kennzahlen].[Direkte_Kosten_Vertrieb_Industriegruppen],[Kennzahlen].[Kennzahlen].[Direkte_Kosten_Industriegruppen],[Kennzahlen].[Kennzahlen].[Kosten_3_Marktfolge],[Kennzahlen].[Kennzahlen].[Kosten_4],[Kennzahlen].[Kennzahlen].[Kosten_5],[Kennzahlen].[Kennzahlen].[Kosten_Gesamt]}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			},
+			"[Zeit].[Zeit]" : 
+			{
+				"Expression" : "{[Zeit].[Zeit].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Freigabe].[Freigabe]" : false,
+			"[Kennzahlen].[Kennzahlen]" : false,
+			"[Produkte].[Produkte]" : false,
+			"[Version].[Version]" : false,
+			"[Vertrieb].[Vertrieb]" : false,
+			"[Zeit].[Zeit]" : false
+		}
+	}
+}

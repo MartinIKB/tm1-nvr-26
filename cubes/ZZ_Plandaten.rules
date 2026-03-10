@@ -1,0 +1,4 @@
+skipcheck;
+
+FEEDERS;
+['Planergebnis_Vertrieb']=>DB( 'NVR', 'Kennzahlen', 'Version', 'Entwicklung', !Zeit, 'Produkte', 'Planergebnis_Vertrieb'); 

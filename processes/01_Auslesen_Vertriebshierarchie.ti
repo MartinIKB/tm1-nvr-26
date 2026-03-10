@@ -1,0 +1,52 @@
+#region Prolog
+
+ODBCOpen( 'co1', 'f_prod_data','access_prod' ); 
+ODBCOutput( 'co1','delete from allg_hierarchie where dimension=''Vertrieb_NVR'''); 
+
+#endregion
+#region Metadata
+
+if (SUBST(vVertrieb,1,2)@='A_'
+     % vVertrieb@='Vertrieb'
+     % ELISANC( 'Vertrieb', 'A_Zusaetzliche_Einheiten', vVertrieb )=1);  
+
+
+  if (vVertrieb@='Vertrieb');
+    vParent='NULL';
+  else;
+    vParent=''''|ELPAR( 'Vertrieb', vVertrieb,1 )|'''';
+  endif;
+
+
+  if (ATTRS( 'Vertrieb', vVertrieb, 'Caption' )@='');
+    vAlias='NULL';
+  else;
+    vAlias=''''|ATTRS( 'Vertrieb', vVertrieb, 'Caption' )|''''; 
+  endif;
+
+  vChild=''''|vVertrieb|'''';
+  
+  vKonsolidierungsfaktor=''''|numbertostring(ElementWeight( 'Vertrieb', 'Vertrieb',ELPAR( 'Vertrieb', vVertrieb,1 ) , vVertrieb ))|'''';
+  
+  if (ATTRS( 'Vertrieb', vVertrieb, 'Typ' )@='');
+    vAttribut1='NULL';
+  else;
+    vAttribut1=''''|ATTRS( 'Vertrieb', vVertrieb, 'Typ' )|''''; 
+  endif;
+
+  if (ElementType( 'Vertrieb','Vertrieb', vVertrieb )@='');
+    vSType='NULL';
+  else;
+    vSType=''''|ElementType( 'Vertrieb','Vertrieb', vVertrieb )|'''';
+  endif;
+
+
+
+  vSQL='insert into allg_hierarchie values (''Vertrieb_NVR'', '|vChild|','|vAlias|','|vParent|','|vKonsolidierungsfaktor|','|vAttribut1|',sysdate,'|vSType|')';
+  ODBCOutput( 'co1', vSQL );
+ 
+endif;
+#endregion
+#region Epilog
+ODBCClose( 'co1' );
+#endregion

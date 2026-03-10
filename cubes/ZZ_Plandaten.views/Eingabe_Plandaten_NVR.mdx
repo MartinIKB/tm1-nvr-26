@@ -1,0 +1,1 @@
+SELECT {[Vertrieb].[Vertrieb].[Planergebnis_Vertrieb],[Vertrieb].[Vertrieb].[Planergebnis_NL],[Vertrieb].[Vertrieb].[Planergebnis_CI]} ON 0, {EXCEPT([ZZ_Plankennzahlen].[ZZ_Plankennzahlen].MEMBERS , {[ZZ_Plankennzahlen].[ZZ_Plankennzahlen].[ZZ_Plankennzahlen]} , ALL)} ON 1 FROM [ZZ_Plandaten] WHERE ([Zeit].[Zeit].[Jan_26]) DIMENSION PROPERTIES [Zeit].[Zeit].[Caption]

@@ -1,0 +1,25 @@
+{
+	"@type":"Cube",
+	"Name":"ZZ_Plandaten",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('ZZ_Plankennzahlen')"
+		},
+		{
+			"@id":"Dimensions('Zeit')"
+		},
+		{
+			"@id":"Dimensions('Vertrieb')"
+		}
+	],
+	"Rules@Code.link":"ZZ_Plandaten.rules",
+	"MeasuresDimension":
+	{
+		"@id":"Dimensions('ZZ_Plankennzahlen')"
+	},
+	"Views@Code.links":
+	[
+		"ZZ_Plandaten.views/Eingabe_Plandaten_NVR.json"
+	]
+}

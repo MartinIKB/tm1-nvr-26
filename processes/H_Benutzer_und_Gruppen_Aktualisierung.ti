@@ -1,0 +1,63 @@
+#region Prolog
+ODBCOpen( 'co1','f_prod_data','access_prod' );
+ODBCClose( 'co1');
+
+SubsetCreatebyMDX( 'sClients_Azure', '{TM1FILTERBYPATTERN(TM1SubsetAll([}Clients].[}Clients]),"*Azure:*")}', 1 );
+SubsetCreatebyMDX( 'sGroups_IBM_PA', '{TM1FILTERBYPATTERN(TM1SubsetAll([}Groups].[}Groups]),"IBM_PA_*")}', 1 );
+
+# Daten löschen
+ViewCreate ( '}ClientGroups' , 'vwLöschbereich' , 1);
+ViewSubsetAssign ( '}ClientGroups' , 'vwLöschbereich' , '}Clients' , 'sClients_Azure' );
+ViewZeroOut ( '}ClientGroups' , 'vwLöschbereich' );
+
+
+# Ermittlung Anzahl der Azure Clients im Subset
+vAnzahlSubsetClients_Azure=SubsetGetSize( '}Clients','sClients_Azure' );
+iZählerClients=0;
+
+# Loop über Anzahl Azure Clients im Subset und Löschen der Azure CAMIDs
+while (iZählerClients<vAnzahlSubsetClients_Azure); 
+    iZählerClients=iZählerClients+1;
+   
+   # Ermittlung der Elementnamen im Subset     
+   vClients=SubsetGetElementName( '}Clients', 'sClients_Azure',iZählerClients );
+
+   # Element aus Dimension löschen
+   DimensionElementDelete( '}Clients',vClients );
+
+end;
+
+
+# Ermittlung Anzahl der IBM_PA-Gruppen im Subset
+vAnzahlSubsetGroups_IBM_PA=SubsetGetSize( '}Groups','sGroups_IBM_PA' );
+iZählerGroups=0;
+
+# Loop über Anzahl IBM_PA-Gruppen im Subset und Löschen der Gruppen
+while (iZählerGroups<vAnzahlSubsetGroups_IBM_PA); 
+    iZählerGroups=iZählerGroups+1;
+   
+   # Ermittlung der Elementnamen im Subset     
+   vGroups=SubsetGetElementName( '}Groups', 'sGroups_IBM_PA',iZählerGroups );
+
+   # Element aus Dimension löschen
+   DimensionElementDelete( '}Groups',vGroups );
+
+end;
+
+#endregion
+#region Metadata
+# User in Dimension anlegen
+DimensionElementInsert( '}Clients', '', vCAMID, 'S' );
+
+# Gruppen anlegen sofern noch nicht vorhanden
+if (DimensionElementExists( '}Groups','vAD_GRUPPE')=0);
+ DimensionElementInsert( '}Groups', '', vAD_GRUPPE, 'S' );   
+endif;
+
+
+#endregion
+#region Data
+
+CellPutS( vAD_GRUPPE, '}ClientGroups', vCAMID, vAD_GRUPPE );
+
+#endregion

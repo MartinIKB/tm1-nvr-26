@@ -1,0 +1,12 @@
+#region Prolog
+
+#endregion
+#region Data
+CellPutN( v1212KSP, 'NVR', '1212KSP', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( v1312KBP, 'NVR', '1312KBP', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( v12162VPR, 'NVR', '12162VPR', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( v1215BEP, 'NVR', '1215BEP', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( v1311BPR, 'NVR', '1311BPR', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vProvisionsüberschuss_Neugeschäft_Sonstige, 'NVR', 'Provisionsüberschuss_Neugeschäft_Sonstige', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+CellPutN( vSonst_Zinsueberschuss_Neugeschäft_Sonstige, 'NVR', 'Sonst_Zinsueberschuss_Neugeschäft_Sonstige', vVersion, vFreigabe, vZeit, vProdukte, vVertrieb );
+#endregion

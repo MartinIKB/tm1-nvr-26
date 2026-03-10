@@ -1,0 +1,30 @@
+#region Prolog
+
+s_View_target = 'Load_Kennzahlen';
+
+
+# Create target
+ViewCreate ( 'ZZ_Kosten' , s_View_target , 1);
+
+###### Subsets
+SubsetCreatebyMDX( 'sZeit', '{FILTER( {TM1SUBSETALL( [Zeit] )}, Instr([Zeit].[Flag_Aktueller_Monat], "Kalkulation") > 0 )}', 1 );
+
+
+ViewSubsetAssign ( 'ZZ_Kosten' , s_View_target , 'Zeit' , 'sZeit' );
+
+
+ViewZeroOut ( 'ZZ_Kosten' , s_View_target );
+#endregion
+#region Data
+
+CellPutN( vDirekte_Kosten_Produkteinheiten, 'ZZ_Kosten','Direkte_Kosten_Produkteinheiten',  vZeit, vProdukte, vVertrieb );
+CellPutN( vKosten_3_Marktfolge, 'ZZ_Kosten', 'Kosten_3_Marktfolge',  vZeit, vProdukte, vVertrieb );
+CellPutN( vKosten_4, 'ZZ_Kosten', 'Kosten_4', vZeit, vProdukte,  vVertrieb );
+CellPutN( vKosten_5, 'ZZ_Kosten', 'Kosten_5', vZeit, vProdukte,  vVertrieb );
+CellPutN( vDirekte_Kosten_Vertrieb, 'ZZ_Kosten', 'Direkte_Kosten_Vertrieb',  vZeit, vProdukte, vVertrieb );
+CellPutN( vDirekte_Kosten_Industriegruppen, 'ZZ_Kosten', 'Direkte_Kosten_Industriegruppen',vZeit, vProdukte, vVertrieb );
+#endregion
+#region Epilog
+
+
+#endregion

@@ -1,0 +1,39 @@
+#region Prolog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+IF ( DimensionExists ('Produkte')=0);
+   DimensionCreate ('Produkte');
+ENDIF;
+
+DimensionDeleteAllElements ('Produkte');
+
+
+DimensionElementInsert ('Produkte','','Produkte','C');
+
+AttrInsert ('Produkte' , '' , 'Caption' , 'A');
+
+#endregion
+#region Metadata
+
+if (vChild@<>'Produkte');
+  DimensionElementInsert ('Produkte','',vParent,'C');
+  DimensionElementInsert ('Produkte','',vChild,'N');
+
+  if (vKonsolidierungsfaktor@='+');
+    DimensionElementComponentAdd ('Produkte' , vParent , vChild , 1);
+  elseif (vKonsolidierungsfaktor@='-');
+    DimensionElementComponentAdd ('Produkte' , vParent , vChild , -1);
+  elseif (vKonsolidierungsfaktor@='~');
+     DimensionElementComponentAdd ('Produkte' , vParent , vChild , 0);
+  endif;
+endif;
+
+#endregion
+#region Data
+
+AttrPuts (vAlias , 'Produkte' , vChild , 'Caption');
+
+#endregion

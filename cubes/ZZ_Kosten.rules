@@ -1,0 +1,60 @@
+SKIPCHECK;
+
+['Direkte_Kosten_Vertrieb']=if (!Vertrieb@<>'A_Vertrieb_Kostendummy'
+                              & !Vertrieb@<>'Vertrieb'
+                              & !Produkte@<>'Produkte_Kostendummy'
+                              & !Produkte@<>'Produkte'
+                          ,    
+                            DB( 'ZZ_Kosten', 'Direkte_Kosten_Vertrieb', !Zeit, 'Produkte', !Vertrieb)
+                          / DB( 'ZZ_Kosten', 'Direkte_Kosten_Vertrieb', !Zeit, 'Produkte', 'A_Vertrieb_Kostendummy')
+                          * DB( 'ZZ_Kosten', 'Direkte_Kosten_Vertrieb', !Zeit, !Produkte, 'A_Vertrieb_Kostendummy')
+                          ,
+                          STET);
+
+
+['Direkte_Kosten_Produkteinheiten']=if (!Vertrieb@<>'A_Vertrieb_Kostendummy'
+                              & !Vertrieb@<>'Vertrieb'
+                              & !Produkte@<>'Produkte_Kostendummy'
+                              & !Produkte@<>'Produkte'
+                          ,    
+                            DB( 'ZZ_Kosten', 'Direkte_Kosten_Produkteinheiten', !Zeit, 'Produkte', !Vertrieb)
+                          / DB( 'ZZ_Kosten', 'Direkte_Kosten_Produkteinheiten', !Zeit, 'Produkte', 'A_Vertrieb_Kostendummy')
+                          * DB( 'ZZ_Kosten', 'Direkte_Kosten_Produkteinheiten', !Zeit, !Produkte, 'A_Vertrieb_Kostendummy')
+                          ,
+                          STET);
+
+
+['Kosten_3_Marktfolge']=if (!Vertrieb@<>'A_Vertrieb_Kostendummy'
+                              & !Vertrieb@<>'Vertrieb'
+                              & !Produkte@<>'Produkte_Kostendummy'
+                              & !Produkte@<>'Produkte'
+                          ,    
+                            DB( 'ZZ_Kosten', 'Kosten_3_Marktfolge', !Zeit, 'Produkte', !Vertrieb)
+                          / DB( 'ZZ_Kosten', 'Kosten_3_Marktfolge', !Zeit, 'Produkte', 'A_Vertrieb_Kostendummy')
+                          * DB( 'ZZ_Kosten', 'Kosten_3_Marktfolge', !Zeit, !Produkte, 'A_Vertrieb_Kostendummy')
+                          ,
+                          STET);                        
+
+
+['Kosten_4']=if (!Vertrieb@<>'A_Vertrieb_Kostendummy'
+                              & !Vertrieb@<>'Vertrieb'
+                              & !Produkte@<>'Produkte_Kostendummy'
+                              & !Produkte@<>'Produkte'
+                          ,    
+                            DB( 'ZZ_Kosten', 'Kosten_4', !Zeit, 'Produkte', !Vertrieb)
+                          / DB( 'ZZ_Kosten', 'Kosten_4', !Zeit, 'Produkte', 'A_Vertrieb_Kostendummy')
+                          * DB( 'ZZ_Kosten', 'Kosten_4', !Zeit, !Produkte, 'A_Vertrieb_Kostendummy')
+                          ,
+                          STET);                                    
+
+
+['Kosten_5']=if (!Vertrieb@<>'A_Vertrieb_Kostendummy'
+                              & !Vertrieb@<>'Vertrieb'
+                              & !Produkte@<>'Produkte_Kostendummy'
+                              & !Produkte@<>'Produkte'
+                          ,    
+                            DB( 'ZZ_Kosten', 'Kosten_5', !Zeit, 'Produkte', !Vertrieb)
+                          / DB( 'ZZ_Kosten', 'Kosten_5', !Zeit, 'Produkte', 'A_Vertrieb_Kostendummy')
+                          * DB( 'ZZ_Kosten', 'Kosten_5', !Zeit, !Produkte, 'A_Vertrieb_Kostendummy')
+                          ,
+                          STET);          

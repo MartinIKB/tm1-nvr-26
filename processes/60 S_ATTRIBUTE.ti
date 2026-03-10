@@ -1,0 +1,20 @@
+#region Metadata
+
+#endregion
+#region Data
+
+if (ATTRS( 'Vertrieb', vVertrieb, 'Typ' )@='Kunde');
+    AttrPutS( SUBST( vVertrieb, 1, SCAN( '_',vVertrieb)-1),'Vertrieb',vVertrieb,'KD_NR');
+    AttrPutS( SUBST( vVertrieb,SCAN( '_',vVertrieb)+1,10),'Vertrieb',vVertrieb,'VVS');
+endif;
+
+
+if (ATTRS( 'Vertrieb', vVertrieb, 'Typ' )@='Vertrag');
+    AttrPutS( SUBST( ELPAR( 'Vertrieb',vVertrieb,1), 1, SCAN( '_',ELPAR( 'Vertrieb',vVertrieb,1))-1),'Vertrieb',vVertrieb,'KD_NR');
+    AttrPutS( SUBST( ELPAR( 'Vertrieb',vVertrieb,1),SCAN( '_',ELPAR( 'Vertrieb',vVertrieb,1))+1,10),'Vertrieb',vVertrieb,'VVS');
+endif;
+
+
+
+
+#endregion

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Zeit",
+	"Hierarchies@Code.links":
+	[
+		"Zeit.hierarchies/Zeit.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Zeit')/Hierarchies('Zeit')"
+	}
+}

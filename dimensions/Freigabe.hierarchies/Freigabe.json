@@ -1,0 +1,20 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Freigabe",
+	"Elements":
+	[
+		{
+			"Name":"Freigabe",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Test",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Entwicklung",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

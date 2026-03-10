@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Kennzahlen",
+	"Hierarchies@Code.links":
+	[
+		"Kennzahlen.hierarchies/Kennzahlen.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Kennzahlen')/Hierarchies('Kennzahlen')"
+	}
+}

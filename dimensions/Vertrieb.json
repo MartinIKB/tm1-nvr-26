@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Vertrieb",
+	"Hierarchies@Code.links":
+	[
+		"Vertrieb.hierarchies/Vertrieb.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Vertrieb')/Hierarchies('Vertrieb')"
+	}
+}

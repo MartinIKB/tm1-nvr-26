@@ -1,0 +1,23 @@
+{
+	"@type":"MDXView",
+	"Name":"View_ZZ_Kosten_Befüllung",
+	"MDX@Code.link":"View_ZZ_Kosten_Befüllung.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Kennzahlen].[Kennzahlen]" : "MEMBER_NAME",
+			"[Produkte].[Produkte]" : "Caption",
+			"[Vertrieb].[Vertrieb]" : "Caption",
+			"[Zeit].[Zeit]" : "Caption"
+		},
+		"ContextSets" : {},
+		"ExpandAboves" : 
+		{
+			"[Kennzahlen].[Kennzahlen]" : false,
+			"[Produkte].[Produkte]" : false,
+			"[Vertrieb].[Vertrieb]" : false,
+			"[Zeit].[Zeit]" : false
+		}
+	}
+}

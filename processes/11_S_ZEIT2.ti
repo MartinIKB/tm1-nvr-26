@@ -1,0 +1,10 @@
+#region Metadata
+if (DimensionElementExists( 'Zeit',vChild)=0);
+    DimensionElementInsertDirect( 'Zeit', '',vChild, 'N');
+    DimensionElementComponentAddDirect( 'Zeit', vParent, vChild,0 );
+endif;
+#endregion
+#region Data
+AttrPutS( vAlias, 'Zeit', vChild, 'Caption', '' );
+AttrPutS( vKalkulationsflag, 'Zeit', vChild, 'Flag_Aktueller_Monat', '' );
+#endregion

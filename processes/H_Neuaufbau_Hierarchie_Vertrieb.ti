@@ -1,0 +1,48 @@
+#region Prolog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+IF ( DimensionExists ('Vertrieb')=0);
+   DimensionCreate ('Vertrieb');
+ENDIF;
+
+DimensionDeleteAllElements ('Vertrieb');
+
+
+DimensionElementInsert ('Vertrieb','','Vertrieb','C');
+
+AttrInsert ('Vertrieb' , '' , 'Caption' , 'A');
+AttrInsert ('Vertrieb' , '' , 'Typ' , 'S');
+AttrInsert ('Vertrieb' , '' , 'KD_NR' , 'S');
+
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+DimensionElementInsert( 'Vertrieb', '', vParent, vSType );
+DimensionElementInsert( 'Vertrieb', '', vChild, vSType );
+
+
+DimensionElementComponentAdd ('Vertrieb' , vParent , vChild , 1);
+
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+AttrPuts (vAlias , 'Vertrieb' , vChild , 'Caption');
+
+
+#endregion
+#region Epilog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+#ExecuteProcess ( 'Aufbau_Kunden_Ralf');
+#endregion
